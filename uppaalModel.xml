@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+</declaration>
+	<template>
+		<name x="5" y="5">Bot()</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-67132" y="-67430">
+			<name x="-67149" y="-67464">start</name>
+		</location>
+		<location id="id1" x="-66784" y="-67260">
+			<name x="-66794" y="-67294">master</name>
+		</location>
+		<location id="id2" x="-66240" y="-67260">
+			<name x="-66223" y="-67268">slave</name>
+		</location>
+		<location id="id3" x="-66792" y="-67430">
+			<name x="-66802" y="-67464">solo</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<nail x="-66257" y="-67438"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id3"/>
+			<nail x="-66648" y="-67336"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<nail x="-66911" y="-67336"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id2"/>
+			<nail x="-66350" y="-67133"/>
+			<nail x="-66138" y="-67141"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+		</transition>
+	</template>
+	<template>
+		<name>ConvoyPositionMaster()</name>
+		<declaration>bool rPosition= false;
+bool lPosition= false;</declaration>
+		<location id="id4" x="-1215" y="-875">
+			<name x="-1225" y="-909">start</name>
+		</location>
+		<location id="id5" x="-739" y="-875">
+			<name x="-749" y="-909">unavaillable</name>
+		</location>
+		<location id="id6" x="-1003" y="-671">
+			<name x="-1013" y="-705">available</name>
+		</location>
+		<init ref="id4"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<nail x="-748" y="-671"/>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<nail x="-952" y="-815"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+		</transition>
+	</template>
+	<template>
+		<name>ConvoyPositionSlave()</name>
+		<location id="id7" x="-578" y="-170">
+			<name x="-588" y="-204">start</name>
+		</location>
+		<location id="id8" x="-195" y="-170">
+			<name x="-205" y="-204">buffer</name>
+		</location>
+		<location id="id9" x="-204" y="34">
+			<name x="-214" y="0">sRight</name>
+		</location>
+		<location id="id10" x="170" y="-170">
+			<name x="161" y="-204">sLeft</name>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id8"/>
+			<nail x="8" y="-323"/>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<nail x="-110" y="-76"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<nail x="-340" y="-68"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id10"/>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+		</transition>
+	</template>
+	<template>
+		<name>SlaveLocation()</name>
+		<location id="id11" x="-527" y="-204">
+			<name x="-537" y="-238">start</name>
+		</location>
+		<location id="id12" x="-195" y="-212">
+			<name x="-205" y="-246">passive</name>
+		</location>
+		<location id="id13" x="314" y="-212">
+			<name x="304" y="-246">active</name>
+		</location>
+		<location id="id14" x="85" y="-212">
+			<name x="75" y="-246">intransit</name>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id12"/>
+			<nail x="-59" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<nail x="212" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id13"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id14"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+		</transition>
+	</template>
+	<template>
+		<name>Emulator()</name>
+		<location id="id15" x="-544" y="-229">
+		</location>
+		<location id="id16" x="-238" y="-229">
+		</location>
+		<location id="id17" x="42" y="-238">
+		</location>
+		<location id="id18" x="-238" y="-34">
+		</location>
+		<init ref="id15"/>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<nail x="-93" y="-306"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id16"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Bot();
+// List one or more processes to be composed into a system.
+
+master= Bot();
+slave1=Bot();
+slave2=Bot();
+
+masterRight= ConvoyPosition():
+masterLeft= ConvoyPosition():
+
+</system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

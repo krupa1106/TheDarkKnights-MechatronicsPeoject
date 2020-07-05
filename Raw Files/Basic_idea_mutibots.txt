@@ -1,0 +1,46 @@
+-We will make the current one the master bot which is driven manually but has a capacity to communicate 
+ with other bots 
+
+-There will small bots which can swim in water and some can move on land 
+
+-Master decides which one to deploy when and the use cases of group of bots will  be same.
+
+-Different slave bots 
+  - Move on land 
+     - Camera,able to communicate to slave and move based on data from ultrasonic sensor 
+     - states
+          - standy 
+          - passive - the device is on but has not reached exact spot to do its real job 
+          - Active - remote survivalance with control from master 
+		   - Move based on own intelligence and available sensor data.
+          	   - send gps coordinates continously 
+  - swim in water 
+     - Under water camera ,able to communicate to slave and move based on data from laser and photo transistors       
+       with water proof 
+     - states
+           - standby 
+           - passive
+           - Active   
+
+
+Master bot 
+- States 
+    - Solomode
+    - Master mode -- when its managing many slaves (different small bots)
+    - Slave mode -- When its reporting to anothe bot of its own kind
+    - Cordination- mode --Each of big bots needs to work on coredination 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+A scanerio a air craft crash and bots are deployed in that scanerio , to judge and save passengers , since a crash was huge the wrekage is distributed all around sea
+so the big bot works in cordination with slave bots the 
+
+based on the data received the small bots detect a danger or emergency and send a message to Master bot 
+Master transmits the data and asks for the emergency backup where the small detected danger 
+
+Until the backup is received the suitation is monitored and small bot keeps sending data ,once the back is arrived the emergency message is stopped 
+
+
+              
